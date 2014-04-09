@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+		<meta http-equiv="Cache-control" content="no-cache" />
+		
+		<style type="text/css">
+			@font-face
+			{
+				font-family: "Roadgeek2005SeriesD";
+				src: url("http://panic.com/fonts/Roadgeek 2005 Series D/Roadgeek 2005 Series D.otf");
+			}
+			
+			body, *
+			{
+			
+			}
+			body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td
+			{ 
+				margin: 0;
+				padding: 0;
+			}
+				
+			fieldset,img
+			{ 
+				border: 0;
+			}
+			
+				
+			/* Settin' up the page */
+			
+			html, body, #main
+			{
+				overflow: hidden; /* */
+			}
+			
+			body
+			{
+				color: white;
+				font-family: 'Roadgeek2005SeriesD', sans-serif;
+				font-size: 20px;
+				line-height: 24px;
+			}
+			body, html, #main
+			{
+				background: transparent !important;
+			}
+			
+			#spacepeopleContainer
+			{
+				width:506px;
+				height: 314px;
+				text-align: center;
+				background-color:transparent;
+				background-size: 250px 187px;
+			}
+			#spacepeopleContainer *
+			{
+				font-weight: normal;
+			}
+			
+			h1
+			{
+				font-size: 2em;
+				line-height: 15px;
+				margin-top: 15px;
+				margin-bottom: 5px;
+				color: black;
+				text-shadow:0px -2px 0px black;
+				text-transform: uppercase;
+			}
+			
+			h2,
+			p
+			{
+				width: 180px;
+				margin: 0px auto;
+				padding-top: 20px;
+				font-size: 16px;
+				line-height: 18px;
+				color: #fff;
+				text-transform: uppercase;
+			}
+
+			table,th,td
+			{
+			
+			padding-left:10px;
+			padding-right: 10px;
+			margin:10px;
+			text-align: left;
+			color:rgb(174, 183, 188);
+			}
+
+			th{
+				font-size: 20px;
+			}
+
+			.heading{
+				border-bottom: 1px solid black;
+				border-color: rgb(174, 183, 188);
+				color:#fff;
+			}
+			.MW{
+				color:rgb(0, 159, 153);
+			}
+			.TR{
+				color:rgb(255, 48, 0);
+			}
+
+		</style>
+	
+		<script type="text/javascript">
+
+		function refresh()
+		{
+		    var req = new XMLHttpRequest();
+	   	 	console.log("Refreshing Count...");
+			
+        req.onreadystatechange=function() {
+          if (req.readyState==4 && req.status==200) {
+    				document.getElementById('howmany').innerText = req.responseText;
+          }
+        }
+		    req.open("GET", 'update.php', true);
+		    req.send(null);
+		}
+
+		function init()
+		{
+			// Change page background to black if the URL contains "?desktop", for debugging while developing on your computer
+			if (document.location.href.indexOf('desktop') > -1)
+			{
+				document.getElementById('spacepeopleContainer').style.backgroundColor = 'black';
+			}
+			
+			refresh()
+			var int=self.setInterval(function(){refresh()},300000);
+		}
+
+		</script>
+	</head>
+	
+	<body onload="init()">
+		<div id="main">
+		
+			<div id="spacepeopleContainer">
+
+				
+				<h2>Room 131 Schedule</h2>
+
+				<table>
+				  <tr>
+				    <th class="heading">Day</th>
+				    <th class="heading">Name</th>
+				    <th class="heading">Start Time</th>
+				    <th class="heading">End Time</th>
+				  </tr>
+				  <tr>
+				    <td class="MW">MW</td>
+				    <td>History of Design</td>
+				    <td>8:00</td>
+				    <td>9:50</td>
+
+				  </tr>
+				   <tr>
+				    <td class="MW">MW</td>
+				    <td>VCD 1</td>
+				    <td>10:00</td>
+				    <td>12:30</td>
+
+				  </tr>
+				   <tr>
+				    <td class="MW">MW</td>
+				    <td>Digital Foundations</td>
+				    <td>1:00</td>
+				    <td>2:50</td>
+
+				  </tr>
+				   <tr>
+				    <td class="MW">MW</td>
+				    <td>Typography</td>
+				    <td>3:00</td>
+				    <td>4:50</td>
+
+				  </tr>
+				     <tr>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+
+				  </tr>
+				   <tr>
+				    <td class="TR">TR</td>
+				    <td>VCD2</td>
+				    <td>10:00</td>
+				    <td>12:30</td>
+
+				  </tr>
+				   <tr>
+				    <td class="TR">TR</td>
+				    <td>Portfolio</td>
+				    <td>1:00</td>
+				    <td>2:50</td>
+
+				  </tr>
+				   <tr>
+				    <td class="TR">TR</td>
+				    <td>Publication Design</td>
+				    <td>3:00</td>
+				    <td>4:50</td>
+
+				  </tr>
+				  
+				</table>
+			
+			</div><!-- spacepeopleContainer -->
+
+		</div><!-- main -->
+	</body>
+</html>
